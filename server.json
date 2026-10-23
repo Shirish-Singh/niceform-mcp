@@ -1,0 +1,43 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.Shirish-Singh/niceform-mcp",
+  "description": "Create and publish forms, collect responses, summarize and export CSV on niceform.ai.",
+  "version": "0.3.0",
+  "repository": {
+    "url": "https://github.com/Shirish-Singh/niceform-mcp",
+    "source": "github"
+  },
+  "websiteUrl": "https://www.niceform.ai/mcp",
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "niceform-mcp-server",
+      "version": "0.3.0",
+      "transport": {
+        "type": "stdio"
+      },
+      "environmentVariables": [
+        {
+          "name": "NICEFORM_API_KEY",
+          "description": "Your niceform.ai API key (free, Settings > API keys)",
+          "isRequired": true,
+          "isSecret": true
+        }
+      ]
+    }
+  ],
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://www.niceform.ai/api/mcp",
+      "headers": [
+        {
+          "name": "Authorization",
+          "description": "Bearer <niceform.ai API key>",
+          "isRequired": true,
+          "isSecret": true
+        }
+      ]
+    }
+  ]
+}
